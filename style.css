@@ -1,0 +1,72 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+body {
+    background: #402955;
+}
+
+.first-title {
+    margin: 20px 0px 20px 0px;
+    font-size: 42px;
+    width: 80%;
+    color: #5832f3;
+    font-weight: bold;
+}
+
+.description {
+    width: 80%;
+    font-size: 24px;
+    color: #fff;
+}
+
+.page-header {
+    align-items: center;
+    display: flex;
+    gap: 50px;
+}
+
+.header-titles {
+    margin-right: 50px;
+    width: 65%
+}
+
+.header-image {
+    width: 35%;
+}
+
+.header-image img {
+    width: 100%;
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background: black;
+}
+
+.table-products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+table {
+    margin: 10px;
+}
+    
+th, td{
+    border: 1px solid #ffff;
+    padding: 5px;
+    text-align: center;
+    width: 213px;
+}
+
+th{
+    font-weight: bold;
+}

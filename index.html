@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <section class="page-header">
+            <div class="header-image">
+                <img src="cine.jpg"/>
+            </div>
+            <div class="header-titles">
+                <h1 class="first-title">Produtos para aproveitar enquanto assiste a um bom filme</h1>
+                <p class="description">Aproveite para comprar suas bebidas, pipocas, petiscos e doces para saborear enquanto assiste a um filme</p>
+            </div>
+        </section>
+        <div class="divider"></div>
+        <section class="page-body">
+            <div class="table-products">
+                <h2>Produtos disponíveis</h2>
+                <table>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Qtde Pedida</th>
+                        <th>Valor Total do Item</th>
+                    </tr>
+                    <tr>
+                        <td>Refri 500ml</td>
+                        <td>R$ 10,00</td>
+                        <td><input type="number" id="Refri500ml" onchange="calcularTotal('Refri500ml', 10.00)"></td>
+                        <td><span id="totalRefri500ml">R$ 0,00</span></td>
+                    </tr>
+                    <tr>
+                        <td>Refri 700ml</td>
+                        <td>R$ 12,00</td>
+                        <td><input type="number" id="Refri700ml" onchange="calcularTotal('Refri700ml', 12.00)"></td>
+                        <td><span id="totalRefri700ml">R$ 0,00</span></td>
+                    </tr>
+                    <tr>
+                        <td>Água com e sem gás 500ml</td>
+                        <td>R$ 8,00</td>
+                        <td><input type="number" id="Agua500ml" onchange="calcularTotal('Agua500ml', 8.00)"></td>
+                        <td><span id="totalAgua500ml">R$ 0,00</span></td>
+                    </tr>
+                    <tr>
+                        <td>Pipoca Pequena Salgada</td>
+                        <td>R$ 15,00</td>
+                        <td><input type="number" id="PipocaPequena" onchange="calcularTotal('PipocaPequena', 15.00)"></td>
+                        <td><span id="totalPipocaPequena">R$ 0,00</span></td>
+                    </tr>
+                </table>
+
+                <h3>Valor total da compra: <span id="valorTotalCompra">R$ 0,00</span></h3>
+
+            </div>
+        </section>
+    </main>
+    <script>
+        function calcularTotal(id, preco) {
+            const qtdePedida = parseInt(document.getElementById(id).value);
+            const totalItem = qtdePedida * preco;
+            document.querySelector(`#total${id}`).innerText = `R$ ${totalItem.toFixed(2)}`;
+
+            let valorTotalCompra = 0;
+            const produtos = ['Refri500ml', 'Refri700ml', 'Agua500ml', 'PipocaPequena']
+            for (const produto of produtos) {
+                const total = parseFloat(document.getElementById(`total${produto}`).innerText.replace('R$ ', ''));
+                valorTotalCompra += total;
+            }
+            document.getElementById('valorTotalCompra').innerText = `R$ ${valorTotalCompra.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
